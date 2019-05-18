@@ -6,7 +6,7 @@ digest_function: SHA256
 
 # the endpoint used to execute operations
 operation_queue: {
-  target: "localhost:8980"
+  target: "192.168.5.45:8981"
 
   # the instance domain that this worker will execute work in
   # all requests will be tagged with this instance name
@@ -15,7 +15,7 @@ operation_queue: {
 
 # the endpoint used for cas interactions
 content_addressable_storage: {
-  target: "localhost:8980"
+  target: "192.168.5.45:8981"
 
   # the instance domain that this worker will make resource requests in
   # all requests will be tagged with this instance name
@@ -24,7 +24,7 @@ content_addressable_storage: {
 
 # the endpoint used for action cache interactions
 action_cache: {
-  target: "localhost:8980"
+  target: "192.168.5.45:8981"
 
   # the instance domain that this worker will make resource requests in
   # all requests will be tagged with this instance name
@@ -91,10 +91,10 @@ platform: {
 
 # limit for contents of files retained
 # from CAS in the cache
-cas_cache_max_size_bytes: 2147483648 # 2 * 1024 * 1024 * 1024
+cas_cache_max_size_bytes: 10737418240 # 2 * 1024 * 1024 * 1024
 
 # the number of concurrently available slots in the execute phase
-execute_stage_width: 1
+execute_stage_width: 60
 
 # an imposed action-key-invariant timeout used in the unspecified timeout case
 default_action_timeout: {
