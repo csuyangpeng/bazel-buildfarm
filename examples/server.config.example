@@ -40,7 +40,7 @@ instances {
     cas_config: {
       memory: {
         # limit for CAS total content size in bytes
-        max_size_bytes: 1073741824 # 1024 * 1024 * 1024
+        max_size_bytes: 10737418240 # 1024 * 1024 * 1024
       }
     }
 
@@ -121,7 +121,7 @@ instances {
 }
 
 # the listening port of the buildfarm grpc server
-port: 8980
+port: 8981
 
 # the instance to which all requests with an empty/missing
 # instance name are routed
