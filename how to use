@@ -1,31 +1,31 @@
 
-Buildfarm
+## Buildfarm
 
-what is Buildfarm
+### what is Buildfarm
 Buildfarm is powerful system on speeding up bazel build, because it has the Bazel remote cache and remote execution. 
 remote cache means that you can compile you project using the cache from the remote server.
 remote execution means you can distribute your build task to the remote workers. 
 
-how Buildfarm work
+### how Buildfarm work
 For buildfarm, it mainly has two binaries, the server(buildfarm-server) and the worker(buildfarm-worker). Another keywork client stand for our project to be compiled.
 Only one server can be exist, but must have one worker at least. How do these two binaries cooperate with each other.
 The server accept our build requests and then dispatch them to the worker. The server finish its task by starting some ServerBuilder, 
 such as response to the client's query, schedule the task and so on. For each task, the worker will make a temp dir, separate the task into many steps, 
 do the step one by one, and clean the temp dir after the task finish. Scan code for More detail.
 
-how to deploy Buildfarm
-For server:
+### how to deploy Buildfarm
+#### For server:
 1. For our apollo, git clone https://github.com/bazelbuild/bazel-buildfarm in our dev container
 2. replace the example dir with https://github.com/csuyangpeng/bazel-buildfarm/tree/master/examples
 3. cd bazel-buildfarm && bazel build src/main/java/build/buildfarm:buildfarm-server
 4. cd bazel-buildfarm && ./bazel-bin/src/main/java/build/buildfarm/buildfarm-server examples/server.config.example
-For worker:
+#### For worker:
 1. For our apollo, git clone https://github.com/bazelbuild/bazel-buildfarm in our dev container
 2. replace the example dir with https://github.com/csuyangpeng/bazel-buildfarm/tree/master/examples
 3. cd bazel-buildfarm && bazel build src/main/java/build/buildfarm:buildfarm-worker
 4. cd bazel-buildfarm && ./bazel-bin/src/main/java/build/buildfarm/buildfarm-worker examples/worker.config.example
 (donot deploy two workers in one container)
 
-how to use Buildfarm
+### how to use Buildfarm
 For our apollo, use ./apollo.sh build_dist for distbuild.
 
