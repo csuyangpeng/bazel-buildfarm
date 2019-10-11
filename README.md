@@ -78,7 +78,10 @@ To attach a remote debugger, run the executable with the `--debug=<PORT>` flag. 
         config/server.config
 
 ## Developer Information
-
+<a href="https://scan.coverity.com/projects/csuyangpeng-bazel-buildfarm">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/19399/badge.svg"/>
+</a>
 ### Setting up intelliJ
 
 1. Follow the instructions in https://github.com/bazelbuild/intellij to install the bazel plugin for intelliJ
